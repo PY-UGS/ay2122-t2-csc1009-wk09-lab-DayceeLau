@@ -21,6 +21,30 @@ public class Wk09RandomCharacter{
         return (char)(random.nextInt(256) + '~');
     }
 
+    public boolean Prime(int number){
+        boolean isPrime = true;
+        if (number >1){
+            for(int i = 0; i<number/2; i++){
+                //Remainder 0 != prime
+                if(number%2==0){
+                    isPrime = false;
+                }
+            }
+        } else{
+            isPrime = false;
+        }
+        return isPrime;
+    }
+
+    public int getRandomPrimeNumber(){
+        //Limit to 10
+        int number = (random.nextInt(10)+ '0');
+        while(!Prime(number)){
+            number = (random.nextInt(10)+'0');
+        }
+        return number;
+    }
+
     public static void main(String[] args) {
         Wk09RandomCharacter randomCharacter = new Wk09RandomCharacter();
 

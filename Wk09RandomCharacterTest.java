@@ -37,4 +37,10 @@ public class Wk09RandomCharacterTest {
         assertTrue(randomCharacter.getRandomUpperCaseLetter() <=256);
         assertFalse(randomCharacter.getRandomUpperCaseLetter() >256);
     }
+
+    @RepeatedTest(15)
+    void getRandomPrimeNumberTest(){
+        int number = randomCharacter.getRandomPrimeNumber();
+        assertTrue(randomCharacter.Prime(number));
+    }
 }
