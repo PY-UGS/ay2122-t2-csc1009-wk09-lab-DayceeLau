@@ -2,32 +2,30 @@ import java.util.*;
 import java.util.Random;
 
 public class RandomCharacter{
-    Random random = new Random();
+    Random random = new Random();   //Create random object
 
     public char getRandomLowerCaseLetter(){
-        return (char)('a' + random.nextInt(26));
+        return (char)('a' + random.nextInt(26));    //lowercase, 26 alphabets 
     }
 
     public char getRandomUpperCaseLetter(){
-        return (char)('A' + random.nextInt(26));
+        return (char)('A' + random.nextInt(26));    //uppercase, 26 alphabets 
     }
 
     public int getRandomDigitCharacter(){
-        return (int)(random.nextInt(10) + '0');
+        return (int)(random.nextInt(9) + '0');     //integer from 0 to 9
     }
 
     public char getRandomCharacter(){
-        //Total ASCII characters = 256
-        return (char)(random.nextInt(256) + '~');
+        return (char)(random.nextInt(256) + '~');  //Total ASCII characters = 256
     }
 
     public boolean Prime(int number){
-        boolean isPrime = true;
-        if (number >1){
-            for(int i = 0; i<number/2; i++){
-                //Remainder 0 != prime
-                if(number%2==0){
-                    isPrime = false;
+        boolean isPrime = true;                    // set to true
+        if (number >1){                            //If number more than 1
+            for(int i = 0; i<number/2; i++){ 
+                if(number%2==0){                   //Remainder 0 != prime
+                    isPrime = false;               
                 }
             }
         } else{
@@ -47,7 +45,6 @@ public class RandomCharacter{
 
     public static void main(String[] args) {
         RandomCharacter randomChar = new RandomCharacter();
-
         //Print 15 times each
         for(int i=0; i<15; i++){
             System.out.println("Random Lower Case Letter: " + randomChar.getRandomLowerCaseLetter());
