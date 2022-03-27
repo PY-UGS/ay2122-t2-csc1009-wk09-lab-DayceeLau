@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Random;
 
-public class Wk09RandomCharacter{
+public class RandomCharacter{
     Random random = new Random();
 
     public char getRandomLowerCaseLetter(){
@@ -46,15 +46,15 @@ public class Wk09RandomCharacter{
     }
 
     public static void main(String[] args) {
-        Wk09RandomCharacter randomCharacter = new Wk09RandomCharacter();
+        RandomCharacter randomChar = new RandomCharacter();
 
         //Print 15 times each
         for(int i=0; i<15; i++){
-            System.out.println("Random Lower Case Letter: " + randomCharacter.getRandomLowerCaseLetter());
-            System.out.println("Random Upper Case Letter: " + randomCharacter.getRandomUpperCaseLetter());
-            System.out.println("Random Digit Character: " + randomCharacter.getRandomDigitCharacter());
-            System.out.println("Random Character: " + randomCharacter.getRandomCharacter());
-            System.out.println("Random Prime Number: " + randomCharacter.Prime(randomCharacter.getRandomPrimeNumber()));
+            System.out.println("Random Lower Case Letter: " + randomChar.getRandomLowerCaseLetter());
+            System.out.println("Random Upper Case Letter: " + randomChar.getRandomUpperCaseLetter());
+            System.out.println("Random Digit Character: " + randomChar.getRandomDigitCharacter());
+            System.out.println("Random Character: " + randomChar.getRandomCharacter());
+            System.out.println("Random Prime Number: " + randomChar.Prime(randomCharacter.getRandomPrimeNumber()));
         }
     }
 }
