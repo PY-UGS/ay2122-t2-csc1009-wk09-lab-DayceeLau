@@ -12,46 +12,43 @@ public class RandomCharacter{
         return (char)('A' + random.nextInt(26));    //uppercase, 26 alphabets 
     }
 
-    public int getRandomDigitCharacter(){
-        return (int)(random.nextInt(9) + '0');     //integer from 0 to 9
+    public char getRandomDigitCharacter(){
+        return (char)(random.nextInt(10) + '0');     //integer from 0 to 9
     }
 
     public char getRandomCharacter(){
         return (char)(random.nextInt(256) + '~');  //Total ASCII characters = 256
     }
 
-    public boolean Prime(int number){
-        boolean isPrime = true;                    // set to true
-        if (number >1){                            //If number more than 1
-            for(int i = 0; i<number/2; i++){ 
-                if(number%2==0){                   //Remainder 0 != prime
-                    isPrime = false;               
+    public boolean Prime(char number){
+        boolean isPrime = true;
+        int actualNum = Character.getNumericValue(number);         //Get number only    
+        if (actualNum > 1){    //If number more than 1
+            for(int i = 2; i<=actualNum/2; i++){
+                if(actualNum % i == 0){                   //Remainder 0 != prime
+                    isPrime = false;
+                    break;              
                 }
-            }
-        } else{
-            isPrime = false;
+            }                  
         }
+        else { isPrime = false; }
         return isPrime;
     }
 
-    public int getRandomPrimeNumber(){
-        //Limit to 10
-        int number = (random.nextInt(10)+ '0');
-        while(!Prime(number)){
-            number = (random.nextInt(10)+'0');
-        }
-        return number;
-    }
 
     public static void main(String[] args) {
-        RandomCharacter randomChar = new RandomCharacter();
+        Wk09RandomCharacter randomChar = new Wk09RandomCharacter();
         //Print 15 times each
+        char digits;
         for(int i=0; i<15; i++){
             System.out.println("Random Lower Case Letter: " + randomChar.getRandomLowerCaseLetter());
             System.out.println("Random Upper Case Letter: " + randomChar.getRandomUpperCaseLetter());
-            System.out.println("Random Digit Character: " + randomChar.getRandomDigitCharacter());
+            digits = randomChar.getRandomDigitCharacter();
+            System.out.println("Random Digit Character: " + digits);
             System.out.println("Random Character: " + randomChar.getRandomCharacter());
-            System.out.println("Random Prime Number: " + randomChar.Prime(randomCharacter.getRandomPrimeNumber()));
+            System.out.println("Random Number: " + digits + "\nPrime: " + randomChar.Prime(digits));
+            System.out.println();
+
         }
     }
 }
